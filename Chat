@@ -1,0 +1,15 @@
+// server.js
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+// Define routes
+app.use('/api/products', require('./routes/products'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/orders', require('./routes/orders'));
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
